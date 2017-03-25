@@ -149,7 +149,7 @@ app.get('/:articleName', function (req, res) {
     //var articleName=req.params.articleName;
   //res.send(createTemplate(articles[articleName]));
   
-  pool.query("SELECT * FROM article1 WHERE title = "+req.params.articleName,function(err,result){
+  pool.query("SELECT * FROM article1 WHERE title = '"+req.params.articleName+"'",function(err,result){
       if(err){
     res.status(500).send(err.toString());
 }
