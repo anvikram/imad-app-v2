@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne=
-{
+var articles={
+articleOne:{
     title:"Article One : Android",
     heading: "Article One",
     date: "25Mar17",
@@ -19,8 +19,40 @@ var articleOne=
             </p>
             <p>
                 This is the third paragraph regarding android
-            </p>`
-};
+          </p>`
+},
+articleTwo:{
+    title:"Article Two : iOS",
+    heading: "Article Two",
+    date: "25Mar17",
+    content:
+            `<p>
+                This is the first paragraph regarding iOS
+            </p>
+            <p>
+                This is the second paragraph regarding iOS
+            </p>
+            <p>
+                This is the third paragraph regarding iOs
+          </p>`
+},
+articleThree:{
+      title:"Article Two : Windows Mobile",
+    heading: "Article Three",
+    date: "25Mar17",
+    content:
+            `<p>
+                This is the first paragraph regarding Windows Mobile
+            </p>
+            <p>
+                This is the second paragraph regarding Windows Mobile
+            </p>
+            <p>
+                This is the third paragraph regarding Windows Mobile
+          </p>`
+},
+    
+}
 
 function createTemplate(data)
 {
@@ -74,14 +106,12 @@ app.get('/article-one', function (req, res) {
   res.send(createTemplate(articleOne));
 });
 
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+app.get('/article-one', function (req, res) {
+  res.send(createTemplate(articleTwo));
 });
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/article-one', function (req, res) {
+  res.send(createTemplate(articleThree));
 });
-
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
