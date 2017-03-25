@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool=require ('pg').Pool;
+var crypto=require ('crypto');
 
 var config = {
     
@@ -123,6 +124,15 @@ else
   
 });
 
+function hash (input)
+{
+    var hashed=crypto.pbkdf2Sync(input,salt,1000,512,'sha512');
+    return hashed;
+}
+app.get('/hash/:input', function (req, res) {
+  var hashedString=hash(req.params.input,'random string');
+  res.send(hashedString);
+});
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
