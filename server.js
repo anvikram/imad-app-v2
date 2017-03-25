@@ -18,39 +18,7 @@ app.use(morgan('combined'));
 var names=[];
 
 
-var articles={
-'article-two':{
-    title:"Article Two : iOS",
-    heading: "Article Two",
-    date: "25Mar17",
-    content:
-            `<p>
-                This is the first paragraph regarding iOS
-            </p>
-            <p>
-                This is the second paragraph regarding iOS
-            </p>
-            <p>
-                This is the third paragraph regarding iOs
-          </p>`
-},
-'article-three':{
-      title:"Article Two : Windows Mobile",
-    heading: "Article Three",
-    date: "25Mar17",
-    content:
-            `<p>
-                This is the first paragraph regarding Windows Mobile
-            </p>
-            <p>
-                This is the second paragraph regarding Windows Mobile
-            </p>
-            <p>
-                This is the third paragraph regarding Windows Mobile
-          </p>`
-},
-    
-}
+
 
 function createTemplate(data)
 {
