@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-articleOne:{
+'article-one':{
     title:"Article One : Android",
     heading: "Article One",
     date: "25Mar17",
@@ -21,7 +21,7 @@ articleOne:{
                 This is the third paragraph regarding android
           </p>`
 },
-articleTwo:{
+'article-two':{
     title:"Article Two : iOS",
     heading: "Article Two",
     date: "25Mar17",
@@ -36,7 +36,7 @@ articleTwo:{
                 This is the third paragraph regarding iOs
           </p>`
 },
-articleThree:{
+'article-three':{
       title:"Article Two : Windows Mobile",
     heading: "Article Three",
     date: "25Mar17",
@@ -103,6 +103,7 @@ app.get('/ui/style.css', function (req, res) {
 });
 
 app.get('/:articleName', function (req, res) {
+    var articleName=req.params.articleName;
   res.send(createTemplate(articles[articleName]));
 });
 
