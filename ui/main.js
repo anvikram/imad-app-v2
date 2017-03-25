@@ -20,4 +20,4 @@ button.onclick=function()
     
     request.open('GET','http://anvikram.imad.hasura-app.io/counter',true);
     request.send(null);
-}
+};
