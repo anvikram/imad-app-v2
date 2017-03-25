@@ -19,21 +19,6 @@ var names=[];
 
 
 var articles={
-'article-one':{
-    title:"Article One : Android",
-    heading: "Article One",
-    date: "25Mar17",
-    content:
-            `<p>
-                This is the first paragraph regarding android
-            </p>
-            <p>
-                This is the second paragraph regarding android
-            </p>
-            <p>
-                This is the third paragraph regarding android
-          </p>`
-},
 'article-two':{
     title:"Article Two : iOS",
     heading: "Article Two",
