@@ -6,11 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var names=[];
-app.get('/submit-name', function (req, res) {
- var name=req.query.name;
- names.push(name);
- res.send(JSON.stringify(names));
-});
+
 
 var articles={
 'article-one':{
@@ -114,6 +110,12 @@ app.get('/', function (req, res) {
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+});
+
+app.get('/submit-name', function (req, res) {
+ var name=req.query.name;
+ names.push(name);
+ res.send(JSON.stringify(names));
 });
 
 app.get('/:articleName', function (req, res) {
